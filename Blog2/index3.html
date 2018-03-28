@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>课程分类——网页定位导航效果</title>
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/normalize.css" />
+<style>
+        * {
+            margin: 0;
+            padding: 20;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #content {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #content h1 {
+            color: #0088bb;
+        }
+
+        #content .item {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px dotted #0088bb;
+        }
+
+        #content .item h2 {
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid #0088bb;
+            margin-bottom: 10px;
+        }
+
+        #content .item li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        #content .item li a img {
+            width: 260px;
+            height: 230px;
+            border: none;
+        }
+
+        #menu {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            margin-left: 400px;
+            width: 80px;
+        }
+
+        #menu ul li a {
+            display: block;
+            margin: 5px 0;
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        #menu ul li a:hover,
+        #menu ul li a.current {
+            color: #fff;
+            background: #EFEFF4;
+        }
+
+        /*ie6 hack*/
+        * html, * html body {
+            background-image: url(about:blank);
+            background-attachment: fixed;
+        }
+
+        * html #menu {
+            /*position: fixed;*/
+            position: absolute;
+            top: expression(((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+100+'px');
+        }
+
+</style>
+<script>
+    
+  //定义getByClassName函数，让函数实现根据class name获取对象并返回
+    function getByClassName(obj, cls){
+        var element = document.getElementsByTagName("*");
+        var result = new Array();
+        for(var i = 0; i < element.length; i++){
+            if(element[i].className == cls){
+                result.push(element[i]);
+            }
+        }
+        return result;
+    }
+	
+	function hasClass( obj, cls ){ 
+	    return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+	}
+	
+	function removeClass( obj, cls ){ 
+	    if( hasClass( obj, cls )){ 
+		    //remove
+			var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+			obj.className = obj.className.replace(reg, " ");
+		}
+	}
+	
+	
+    //定义addClass函数，让函数实现给对象增加class 
+    function addClass(obj, cls){
+        if(!hasClass(obj, cls)){
+            obj.className = obj.className + " " + cls;
+        }
+    }
+	
+	window.onload = function(){ 
+		
+	    window.onscroll = function(){ 		
+		  //  var top = document.documentElement ? document.documentElement.scrollTop : document.body.scrollTop;
+			var top = document.documentElement.scrollTop || document.body.scrollTop;
+            
+			var menus = document.getElementById("menu").getElementsByTagName("a");
+			
+			var items = getByClassName(document.getElementById("content"), "item");
+			
+			var currentId = "";
+			
+			for ( var i=0; i< items.length; i++ ){ 
+			    var _item = items[i];
+			    var _itemTop = _item.offsetTop;
+				if( top > _itemTop - 200 ){ 
+				    currentId = _item.id;
+				} else { 
+				    break;
+				}			
+			}
+		
+			 				
+      //menu下的a元素class赋值current
+            if(currentId){
+                for(var j = 0; j < menus.length; j++){
+                    var _menus = menus[j];
+                    var _href = _menus.href.split('#');
+                    if(_href[_href.length - 1] == currentId){
+                        addClass(_menus, 'current');
+                    }
+                    else{
+                        removeClass(_menus, "current");
+                    }
+                }
+            }
+      
+	
+		}	
+	}	
+</script>
+</head>
+<body>
+	 
+  <div class="main-wrapper">
+      <!--头部信息-->
+      <header>
+        <nav>
+          <div class="logo">
+            <a href="#">Secret</a>
+          </div>
+          <ul>
+            <li>
+              <a href="index.html" class="active">首页</a>
+            </li>
+            <li>
+              <a href="index2.html">关于</a>
+            </li>
+            <li>
+              <a href="index3.html">发现</a>
+            </li>
+            <li id="slidebar_trigger">
+              <a href="index5.html">轮播样式</a>
+            </li>
+          </ul>
+        </nav>
+        
+      </header>
+     </div>
+      
+<div id="menu">
+<ul>
+<!--运用锚点，实现导航定位。-->
+<li><a href="#item1" class="current">1F 前端</a></li>
+<li><a href="#item2">2F 后端</a></li>
+<li><a href="#item3">3F 移动</a></li>
+<li><a href="#item4">4F 数据库</a></li>
+<li><a href="#item5">5F UI设计</a></li>
+</ul>
+</div>
+<div id="content">
+<h1>课程学习分类</h1>
+
+<div id="item1" class="item">
+<h2>1F 前端</h2>
+<ul>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/3b225025b68c5b20" alt=""/></a></li>
+
+
+</ul>
+</div>
+<div id="item2" class="item">
+<h2>2F 后端</h2>
+<ul>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/3b225025b68c5b20" alt=""/></a></li>
+
+</ul>
+</div>
+
+<div id="item3" class="item">
+<h2>3F 移动</h2>
+<ul>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/3b225025b68c5b20" alt=""/></a></li>
+
+</ul>
+</div>
+
+<div id="item4" class="item">
+<h2>4F 数据库</h2>
+<ul>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/3b225025b68c5b20" alt=""/></a></li>
+</ul>
+
+</div>
+<div id="item5" class="item">
+<h2>5F UI设计</h2>
+<ul>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/d4c3321d3c141aa1" alt=""/></a></li>
+<li><a href="#"><img src="http://i03.pic.sogou.com/3b225025b68c5b20" alt=""/></a></li>
+
+
+</ul>
+</div>
+
+<!--尾部信息-->
+      <footer>
+        <ul class="share-group">
+          <li>
+            <a href="https://github.com/kele131">GitHub</a>
+          </li>
+          <li>
+            <a href="#">博客园</a>
+          </li>
+          <li>
+            <a href="#">友情链接</a>
+          </li>
+          <li>
+            <a href="#">其他</a>
+          </li>
+        </ul>
+        <div class="copy">
+          <p>&copy; Secret - 2018</p>
+        </div>
+      </footer>
+    <!--
+    	作者：offline
+    	时间：2018-03-27
+    	描述：尾部结束
+    -->
+</div>
+</body>
+</html>

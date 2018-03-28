@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQuery无缝轮播插件 - 站长素材</title>
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/normalize.css" />
+<link rel="stylesheet" href="css/ft-carousel.css" />
+<style>
+
+
+</style>
+
+</head>
+<body>
+<div class="main-wrapper">
+      <!--头部信息-->
+      <header>
+        <nav>
+          <div class="logo">
+            <a href="#">Secret</a>
+          </div>
+          <ul>
+            <li>
+              <a href="index.html" class="active">首页</a>
+            </li>
+            <li>
+              <a href="index2.html">关于</a>
+            </li>
+            <li>
+              <a href="index3.html">发现</a>
+            </li>
+            <li id="slidebar_trigger">
+              <a href="index5.html">轮播样式</a>
+            </li>
+          </ul>
+        </nav>
+        
+      </header>
+      <!--头部信息结束-->
+      
+<div class="example">
+	<div class="ft-carousel" id="carousel_1">
+		<ul class="carousel-inner">
+			<li class="carousel-item"><img src="img/pic01.jpg" /></li>
+			<li class="carousel-item"><img src="img/pic02.jpg" /></li>
+			<li class="carousel-item"><img src="img/pic03.jpg" /></li>
+			
+		</ul>
+	</div>
+</div>
+
+<div class="example">
+	<div class="ft-carousel" id="carousel_2">
+		<ul class="carousel-inner">
+			<li class="carousel-item">1</li>
+			<li class="carousel-item">2</li>
+			<li class="carousel-item">3</li>
+			<li class="carousel-item">4</li>
+			<li class="carousel-item">5</li>
+		</ul>
+	</div>
+</div>
+<div class="example">
+	<div class="ft-carousel" id="carousel_3">
+		<ul class="carousel-inner">
+			<li class="carousel-item">1</li>
+			<li class="carousel-item">2</li>
+			<li class="carousel-item">3</li>
+			<li class="carousel-item">4</li>
+			<li class="carousel-item">5</li>
+			<li class="carousel-item">6</li>
+			<li class="carousel-item">7</l
+i>
+		</ul>
+	</div>
+</div>
+
+ <!--尾部信息-->
+      <footer>
+        <ul class="share-group">
+          <li>
+            <a href="https://github.com/kele131">GitHub</a>
+          </li>
+          <li>
+            <a href="#">博客园</a>
+          </li>
+          <li>
+            <a href="#">友情链接</a>
+          </li>
+          <li>
+            <a href="#">其他</a>
+          </li>
+        </ul>
+        <div class="copy">
+          <p>&copy; Secret - 2018</p>
+        </div>
+      </footer>
+    <!--
+    	作者：offline
+    	时间：2018-03-27
+    	描述：尾部结束
+    -->
+<script src="js/jquery.min.js"></script>
+<script src="js/ft-carousel.min.js"></script>
+<script type="text/javascript">
+	$("#carousel_1").FtCarousel();
+
+	$("#carousel_2").FtCarousel({
+		index: 1,
+		auto: false
+	});
+
+	$("#carousel_3").FtCarousel({
+		index: 0,
+		auto: true,
+		time: 3000,
+		indicators: false,
+		buttons: true
+	});
+</script>
+
+</div>
+</body>
+</html>

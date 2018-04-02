@@ -22,7 +22,7 @@ a {
 img{
     display: block;
     max-width: 100%;
-    background-size:cover ;
+    background-size: cover;
     
 }
 .container{
@@ -188,6 +188,7 @@ img{
 
 .main-promote .auth {
     margin-top: 10px;
+     height: inherit;
 }
 
 .main-promote .auth button {
@@ -199,6 +200,7 @@ img{
 
 .promote-title {
     font-size: 22px;
+    height: inherit;
 }
 
 .promote-title:before {

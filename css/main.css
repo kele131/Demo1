@@ -11,7 +11,7 @@
 body{
     font-size: 15px;
     color: #444;
-    line-height: 1.7;
+    line-height: 1.9;
 
 }
 
@@ -22,8 +22,9 @@ a {
 img{
     display: block;
     max-width: 100%;
-    background-size: cover;
-    
+    background-size:cover ;
+
+
 }
 .container{
     max-width: 1080px;
@@ -139,26 +140,37 @@ img{
 }
 .main-promote{
     background: #deeeee;
+
+
 }
 .main-promote .cat {
     background: #6e6568;
     color: #fff;
+
+
+
 }
 
 .main-promote .cat .row {
-    padding: 12px 20px;
+    padding: 12px 12px;
+
+
+
 }
 
 .main-promote .cat .row:hover {
     background: #5d5558;
 }
-
+.main-promote .center{
+    padding-bottom: initial;
+}
 .main-promote .info{
     background: #fff;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
     padding: 10px;
+
 
 }
 .main-promote .info .avatar{
@@ -173,6 +185,7 @@ img{
 .main-promote .info > * {
     padding-bottom: 10px;
     padding-left: 10px;
+
 }
 .main-promote .info .avatar {
     display: block;
@@ -188,7 +201,8 @@ img{
 
 .main-promote .auth {
     margin-top: 10px;
-     height: inherit;
+
+
 }
 
 .main-promote .auth button {
@@ -196,11 +210,13 @@ img{
     background: transparent;
     color: #dd182b;
     width: 40%;
+    padding-bottom: 0;
 }
 
 .promote-title {
-    font-size: 22px;
+    font-size: 21px;
     height: inherit;
+
 }
 
 .promote-title:before {

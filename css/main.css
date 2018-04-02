@@ -113,6 +113,7 @@ img{
 
 .header .search-bar{
     border: 2px solid #dd182b;
+      text-decoration: none;
 }
 .header  input,
 .header .search-bar button{
